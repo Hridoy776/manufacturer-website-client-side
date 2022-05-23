@@ -28,7 +28,11 @@ const Home = () => {
                </div>
             </section>
             <Reviews/>
-            <BussinessSummary/>
+            <section>
+                <div className='flex justify-center items-center'>
+                <BussinessSummary/>
+                </div>
+            </section>
             <Footer/>
         </div>
     );
