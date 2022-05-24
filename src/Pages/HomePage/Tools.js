@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Tools = ({ tool }) => {
-    const { name, img, Price, quantity, description } = tool;
+    const {_id, name, img, Price, quantity, description } = tool;
     const navigate=useNavigate()
     const handleParchase=()=>{
-        navigate('/parchase')
+        navigate(`/parchase/${_id}`)
     }
     
     return (

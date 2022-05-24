@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>} />
         <Route path="/home" element={<Home></Home>} />
-        <Route path="/parchase" element={
+        <Route path="/parchase/:id" element={
           <RequireAuth>
             <Parchase></Parchase>
           </RequireAuth>} />
