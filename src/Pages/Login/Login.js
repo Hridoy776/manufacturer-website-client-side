@@ -1,7 +1,8 @@
-import React from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 import SocialLogin from './SocialLogin';
 
 const Login = () => {
@@ -11,10 +12,19 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-     
-    const navigate=useNavigate()
-    if(user){
-        navigate('/home')
+    
+    const navigate = useNavigate()
+    const location = useLocation()
+    let from = location.state?.from?.pathname || "/";
+
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true });
+        }
+    }, [user, navigate, from])
+
+    if (loading) {
+        return <Loading />
     }
     const handleLogin = (e) => {
         e.preventDefault()
@@ -22,6 +32,7 @@ const Login = () => {
         const password = e.target.password.value;
         signInWithEmailAndPassword(email, password)
     }
+    
     return (
         <div className='flex flex-col h-screen justify-center items-center '>
             <p className='text-primary text-center text-4xl'>login</p>
@@ -49,7 +60,7 @@ const Login = () => {
                 </form>
             </div>
             <div class="divider w-[400px] mx-auto mt-10">OR</div>
-            <SocialLogin/>
+            <SocialLogin  />
         </div>
 
     );

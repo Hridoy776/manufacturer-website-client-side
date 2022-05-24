@@ -1,8 +1,9 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import SocialLogin from './SocialLogin';
+import Loading from '../Shared/Loading';
 const SignUp = () => {
 
     const [
@@ -11,9 +12,18 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
+   
     const navigate = useNavigate()
-    if (user) {
-        navigate('/home')
+    const location = useLocation()
+    let from = location.state?.from?.pathname || "/";
+
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true });
+        }
+    }, [user, navigate, from])
+    if (loading) {
+        return <Loading />
     }
 
     const handleSignUp = (e) => {
@@ -23,6 +33,7 @@ const SignUp = () => {
         const password = e.target.password.value;
         createUserWithEmailAndPassword(email, password)
     }
+    
     return (
         <div className='flex flex-col h-screen justify-center items-center '>
             <p className='text-primary text-center text-4xl'>login</p>
@@ -56,7 +67,7 @@ const SignUp = () => {
                 </form>
             </div>
             <div class="divider w-[400px] mx-auto mt-10">OR</div>
-            <SocialLogin/>
+            <SocialLogin  />
         </div>
     );
 };
