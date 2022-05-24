@@ -1,15 +1,26 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
+import auth from '../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Navbar = () => {
-    const home=<>
-       <NavLink to='/home'>home</NavLink>
-       <NavLink to='/parchase'>parchase</NavLink>
-       <NavLink to='/'>about</NavLink>
-       <NavLink to='/'>dashboard</NavLink>
-       <NavLink to='/'>review</NavLink>
-       <NavLink to='/'>login</NavLink>
+    const [user, loading, error] = useAuthState(auth)
+
+
+    const home = <>
+        <NavLink to='/home'>home</NavLink>
+        <NavLink to='/parchase'>parchase</NavLink>
+        <NavLink to='/'>about</NavLink>
+        <NavLink to='/'>dashboard</NavLink>
+        <NavLink to='/'>review</NavLink>
+        {
+            user ? <button onClick={()=>signOut(auth)} className='btn btn-primary'>sign Out</button> : <NavLink to='/login'>login</NavLink>
+        }
+
     </>
+
+    
     return (
         <div className="navbar bg-primary text-white mx-auto">
             <div className="navbar-start">
@@ -19,8 +30,8 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li>{home}</li>
-                        
-                        
+
+
                     </ul>
                 </div>
                 <Link to='/' className="btn btn-ghost normal-case text-xl">daisyUI</Link>
@@ -28,7 +39,7 @@ const Navbar = () => {
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal w-full p-0">
                     <li>{home}</li>
-                    
+
                 </ul>
             </div>
             <img className='w-10 mx-4 rounded-[50%]' src="https://api.lorem.space/image/face?hash=33791" alt='' />
