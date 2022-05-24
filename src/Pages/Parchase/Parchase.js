@@ -4,26 +4,29 @@ import { useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Footer from '../HomePage/Footer';
 import Navbar from '../HomePage/Navbar';
-
+import OrderModal from './OrderModal';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+import Loading from '../Shared/Loading';
 const Parchase = () => {
     const [user] = useAuthState(auth)
-    const [tool, setTool] = useState({})
-    const [userinformation,setUserInformation]=useState({})
-    const { id } = useParams()
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/tool/${id}`)
-            .then(res => res.json())
-            .then(data => setTool(data))
-    }, [id])
+    const [userinformation, setUserInformation] = useState({})
+    const { id } = useParams()
+    
+    const { data: tool, isLoading, refetch } = useQuery('tool', () => fetch(`http://localhost:5000/tool/${id}`)
+        .then(res => res.json()))
+
 
     const email = user?.email;
-    
+
     useEffect(() => {
         fetch(`http://localhost:5000/user/${email}`)
             .then(res => res.json())
             .then(data => setUserInformation(data))
     }, [email])
+    if(isLoading){
+        return <Loading/>
+    }
 
     return (
         <div>
@@ -36,9 +39,13 @@ const Parchase = () => {
                         <p>price:{tool.Price}</p>
                         <p>quantity:{tool.quantity}</p>
                         <div class="card-actions justify-end">
-                            <button class="btn btn-primary">Listen</button>
+                            <label for="order-modal" class="btn modal-button">open modal</label>
                         </div>
                     </div>
+                   
+                        <OrderModal refetch={refetch} tool={tool} />
+                    
+                    
                 </div>
             </div>
 
