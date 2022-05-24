@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import SocialLogin from './SocialLogin';
 const SignUp = () => {
 
     const [
@@ -50,10 +51,12 @@ const SignUp = () => {
                         <p>already have an account? <Link to='/login'>please login</Link></p>
                     </div>
                     <div class="form-control mt-6">
-                        <input type="submit" value="signUp" />
+                        <input className='btn btn-primary' type="submit" value="signUp" />
                     </div>
                 </form>
             </div>
+            <div class="divider w-[400px] mx-auto mt-10">OR</div>
+            <SocialLogin/>
         </div>
     );
 };

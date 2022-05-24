@@ -2,6 +2,7 @@ import React from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import SocialLogin from './SocialLogin';
 
 const Login = () => {
     const [
@@ -43,10 +44,12 @@ const Login = () => {
                         <p>are you new to drill destruactor? <Link to='/signup'>please sign up</Link></p>
                     </div>
                     <div class="form-control mt-6">
-                        <input type="submit" value="login" />
+                        <input className='btn btn-primary' type="submit" value="login" />
                     </div>
                 </form>
             </div>
+            <div class="divider w-[400px] mx-auto mt-10">OR</div>
+            <SocialLogin/>
         </div>
 
     );
