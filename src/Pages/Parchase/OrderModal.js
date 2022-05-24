@@ -1,22 +1,41 @@
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
-const OrderModal = ({ tool, refetch }) => {
+const OrderModal = ({ tool, refetch, setProduct }) => {
     const [user] = useAuthState(auth)
     const { quantity } = tool;
-    
+
 
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
+        const order = {
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            address: data.address,
+            quantity: data.quantity,
+            productName: tool.name
+        }
+        fetch(`http://localhost:5000/order`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        }).then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    toast.success('successfully order complete')
 
 
-
-
-
-        console.log(data)
+                }
+                refetch()
+                setProduct(null)
+            })
 
     };
     return (

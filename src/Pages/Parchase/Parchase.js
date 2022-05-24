@@ -9,7 +9,7 @@ import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 import Loading from '../Shared/Loading';
 const Parchase = () => {
     const [user] = useAuthState(auth)
-
+    const[product,setProduct]=useState(null)
     const [userinformation, setUserInformation] = useState({})
     const { id } = useParams()
     
@@ -43,7 +43,7 @@ const Parchase = () => {
                         </div>
                     </div>
                    
-                        <OrderModal refetch={refetch} tool={tool} />
+                        <OrderModal refetch={refetch} setProduct={setProduct} tool={tool} />
                     
                     
                 </div>

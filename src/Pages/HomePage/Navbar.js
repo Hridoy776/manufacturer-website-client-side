@@ -10,17 +10,18 @@ const Navbar = () => {
 
     const home = <>
         <NavLink to='/home'>home</NavLink>
-        
+
         <NavLink to='/'>about</NavLink>
-        <NavLink to='/'>dashboard</NavLink>
+        <NavLink to='/dashboard'>dashboard</NavLink>
         <NavLink to='/'>review</NavLink>
         {
-            user ? <button onClick={()=>signOut(auth)} className='btn btn-primary'>sign Out</button> : <NavLink to='/login'>login</NavLink>
+            user ? <button onClick={() => signOut(auth)} className='btn btn-primary'>sign Out</button> : <NavLink to='/login'>login</NavLink>
         }
+
 
     </>
 
-    
+
     return (
         <div className="navbar bg-primary text-white mx-auto">
             <div className="navbar-start">
@@ -43,6 +44,15 @@ const Navbar = () => {
                 </ul>
             </div>
             <img className='w-10 mx-4 rounded-[50%]' src="https://api.lorem.space/image/face?hash=33791" alt='' />
+
+            <div className="dropdown">
+                <label for="dashBoard" tabIndex="0" className="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label>
+                
+            </div>
+
+           
         </div>
     );
 };
