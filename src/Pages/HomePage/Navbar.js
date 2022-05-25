@@ -1,13 +1,13 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { signOut } from 'firebase/auth';
 
 const Navbar = () => {
     const [user, loading, error] = useAuthState(auth)
 
-
+    const navigate=useNavigate()
     const home = <>
         <NavLink to='/home'>home</NavLink>
 
@@ -15,7 +15,11 @@ const Navbar = () => {
         <NavLink to='/dashboard'>dashboard</NavLink>
         <NavLink to='/'>review</NavLink>
         {
-            user ? <button onClick={() => signOut(auth)} className='btn btn-primary'>sign Out</button> : <NavLink to='/login'>login</NavLink>
+            user ? <button onClick={() => {
+                signOut(auth)
+                localStorage.removeItem('access-token')
+                navigate('/')
+            }} className='btn btn-primary'>sign Out</button> : <NavLink to='/login'>login</NavLink>
         }
 
 

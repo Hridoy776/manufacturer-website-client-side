@@ -1,10 +1,15 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom';
+import auth from '../../firebase.init';
+import useAdmin from '../../Hooks/useAdmin';
 import Footer from '../HomePage/Footer';
 import Navbar from '../HomePage/Navbar';
 import MyOrder from './MyOrder';
 
 const DashBoard = () => {
+    const [user] = useAuthState(auth)
+    const [admin] = useAdmin(user)
     return (
         <>
             <Navbar />
@@ -22,16 +27,22 @@ const DashBoard = () => {
                         <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
 
                             <li>
-                                <Link to='/dashboard'>my order</Link>
-                            </li>
-                            <li>
-                                <Link to='/dashboard/addreview'>add a review</Link>
+                                {
+                                    !admin && <>
+                                        <Link to='/dashboard/addreview'>add a review</Link>
+                                        <Link to='/dashboard'>my order</Link>
+
+                                    </>
+                                }
+
                             </li>
                             <li>
                                 <Link to='/dashboard/myprofile'>my profile</Link>
                             </li>
                             <li>
-                                <Link to='/dashboard/makeadmin'>make admin</Link>
+                                {
+                                    admin && <Link to='/dashboard/makeadmin'>make admin</Link>
+                                }
                             </li>
                         </ul>
 

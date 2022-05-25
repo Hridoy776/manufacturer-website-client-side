@@ -21,7 +21,7 @@ const SignUp = () => {
 
     useEffect(() => {
         if (token) {
-            navigate(from, { replace: true });
+            navigate('/');
         }
     }, [token, navigate, from])
     if (loading || updating) {

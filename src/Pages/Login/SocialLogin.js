@@ -6,29 +6,29 @@ import UseToken from '../../Hooks/UseToken';
 import Loading from '../Shared/Loading';
 
 const SocialLogin = () => {
-    
+
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-    const [token]=UseToken(user)
+    const [token] = UseToken(user)
     const navigate = useNavigate()
     const location = useLocation()
     let from = location.state?.from?.pathname || "/";
 
     useEffect(() => {
         if (token) {
+            console.log('hee')
             navigate(from, { replace: true });
         }
     }, [token, navigate, from])
 
-    if (loading) {
-        return <Loading />
-    }
-   
+
+    console.log(user, token)
     
+
 
     const handeGoogleSignIn = () => {
         signInWithGoogle()
     }
-    
+
     return (
         <div class="form-control mt-6 w-[330px]">
             <button onClick={handeGoogleSignIn} className='btn btn-primary'>google sign in</button>
