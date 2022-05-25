@@ -13,7 +13,7 @@ const DashBoard = () => {
                     <input id="dashBoard" type="checkbox" class="drawer-toggle" />
                     <div class="drawer-content flex flex-col items-center justify-center">
                         dashBoard
-                        <Outlet/>
+                        <Outlet />
 
 
                     </div>
@@ -29,6 +29,9 @@ const DashBoard = () => {
                             </li>
                             <li>
                                 <Link to='/dashboard/myprofile'>my profile</Link>
+                            </li>
+                            <li>
+                                <Link to='/dashboard/makeadmin'>make admin</Link>
                             </li>
                         </ul>
 
