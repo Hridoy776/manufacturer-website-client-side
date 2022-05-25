@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
@@ -11,6 +12,7 @@ const OrderModal = ({ tool, refetch, setProduct }) => {
 
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate=useNavigate()
     const onSubmit = data => {
         const order = {
             name: data.name,
@@ -21,7 +23,7 @@ const OrderModal = ({ tool, refetch, setProduct }) => {
             productName: tool.name
         }
         fetch(`http://localhost:5000/order`, {
-            method: 'PUT',
+            method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
@@ -30,11 +32,11 @@ const OrderModal = ({ tool, refetch, setProduct }) => {
             .then(data => {
                 if (data.success) {
                     toast.success('successfully order complete')
-
+                    navigate('/')
 
                 }
-                refetch()
-                setProduct(null)
+                
+                
             })
 
     };

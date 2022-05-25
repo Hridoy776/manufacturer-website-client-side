@@ -22,10 +22,13 @@ const DashBoard = () => {
                         <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
 
                             <li>
-                                <Link to='/dashboard'>Sidebar Item 1</Link>
+                                <Link to='/dashboard'>my order</Link>
                             </li>
                             <li>
-                                <Link to='/dashboard/addreview'>Sidebar Item 2</Link>
+                                <Link to='/dashboard/addreview'>add a review</Link>
+                            </li>
+                            <li>
+                                <Link to='/dashboard/myprofile'>my profile</Link>
                             </li>
                         </ul>
 
