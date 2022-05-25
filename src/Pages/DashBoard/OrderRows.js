@@ -9,6 +9,7 @@ const OrderRows = ({ order, index }) => {
             <td>{name}</td>
             <td>{email}</td>
             <td>{quantity}</td>
+            <td><button class="btn btn-outline btn-xs btn-secondary">pay</button></td>
         </tr>
     );
 };

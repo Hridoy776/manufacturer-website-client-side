@@ -21,6 +21,7 @@ const MyOrder = () => {
         <th>Name</th>
         <th>Job</th>
         <th>Favorite Color</th>
+        <th>payment</th>
       </tr>
     </thead>
     <tbody>
