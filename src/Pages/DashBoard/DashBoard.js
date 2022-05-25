@@ -41,7 +41,12 @@ const DashBoard = () => {
                             </li>
                             <li>
                                 {
-                                    admin && <Link to='/dashboard/makeadmin'>make admin</Link>
+                                    admin && <>
+                                               <Link to='/dashboard/makeadmin'>make admin</Link>
+                                               <Link to='/dashboard/manageAllOrder'>manage all order</Link>
+                                               <Link to='/dashboard/addAProduct'>add a product</Link>
+                                               <Link to='/dashboard/manageProducts'>manage product</Link>
+                                            </>
                                 }
                             </li>
                         </ul>
