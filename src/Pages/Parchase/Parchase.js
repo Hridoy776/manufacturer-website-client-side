@@ -37,7 +37,8 @@ const Parchase = () => {
                     <div class="card-body">
                         <h2 class="card-title">{tool.name}</h2>
                         <p>price:{tool.Price}</p>
-                        <p>quantity:{tool.quantity}</p>
+                        <p>quantity:{tool.inStock}</p>
+                        <p>Min oder quantity:{tool.minQuantity}</p>
                         <div class="card-actions justify-end">
                             <label for="order-modal" class="btn modal-button">open modal</label>
                         </div>

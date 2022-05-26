@@ -7,12 +7,12 @@ import auth from '../../firebase.init';
 
 const OrderModal = ({ tool, refetch, setProduct }) => {
     const [user] = useAuthState(auth)
-    const { quantity } = tool;
+    const { minQuantity } = tool;
 
 
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     const onSubmit = data => {
         const order = {
             name: data.name,
@@ -35,8 +35,8 @@ const OrderModal = ({ tool, refetch, setProduct }) => {
                     navigate('/')
 
                 }
-                
-                
+
+
             })
 
     };
@@ -59,15 +59,15 @@ const OrderModal = ({ tool, refetch, setProduct }) => {
                             <input defaultValue={user?.email} type="text" class="input input-bordered" {...register("email")} readOnly />
                         </div>
                         <div class="form-control mt-3">
-                            <input type="text" class="input input-bordered" {...register("address")} />
+                            <input type="text" placeholder='address' class="input input-bordered" {...register("address")} />
                         </div>
                         <div class="form-control mt-3">
-                            <input type="text" class="input input-bordered" {...register("phone")} />
+                            <input type="text" placeholder='phone' class="input input-bordered" {...register("phone")} />
                         </div>
                         <div class="form-control mt-3">
-                            <input defaultValue={quantity} type="text" class="input input-bordered" {...register("quantity", {
+                            <input defaultValue={minQuantity} type="text" class="input input-bordered" {...register("quantity", {
                                 min: {
-                                    value: 1000,
+                                    value: minQuantity,
                                     message: 'please try to order minimum 1000' // JS only: <p>error message</p> TS only support string
                                 },
                                 max: {

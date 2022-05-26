@@ -4,41 +4,53 @@
         "Price": 444,
         "img":"https://i.ibb.co/DgMCzLN/joop-removebg-preview.png",
         "description":"djfjdjfjdjgfjdgjvdjgvjdfjgvjdjdjfgvjdfgjdfx",
-        "quantity":"1000"
+        "inStock":"1000",
+        "minQuantity":"100"
+
     },
     {
         "name": "Radial Arm Drilling Machine",
         "Price": 444,
         "img":"https://i.ibb.co/DgMCzLN/joop-removebg-preview.png",
         "description":"djfjdjfjdjgfjdgjvdjgvjdfjgvjdjdjfgvjdfgjdfx",
-        "quantity":"1000"
+        "inStock":"1000",
+        "minQuantity":"100"
+
     },
     {
         "name": "Drill Hydraulic Radial Drilling",
         "Price": 444,
         "img":"https://i.ibb.co/DgMCzLN/joop-removebg-preview.png",
         "description":"djfjdjfjdjgfjdgjvdjgvjdfjgvjdjdjfgvjdfgjdfx",
-        "quantity":"1000"
+        "inStock":"1000",
+        "minQuantity":"100"
+
     },
     {
         "name": "Bore Drilling Machine (Z3032)",
         "Price": 444,
         "img":"https://i.ibb.co/DgMCzLN/joop-removebg-preview.png",
         "description":"djfjdjfjdjgfjdgjvdjgvjdfjgvjdjdjfgvjdfgjdfx",
-        "quantity":"1000"
+        "inStock":"1000",
+        "minQuantity":"100"
+
     },
     {
         "name": "Brushless Drill",
         "Price": 444,
         "img":"https://i.ibb.co/DgMCzLN/joop-removebg-preview.png",
         "description":"djfjdjfjdjgfjdgjvdjgvjdfjgvjdjdjfgvjdfgjdfx",
-        "quantity":"1000"
+        "inStock":"1000",
+        "minQuantity":"100"
+
     },
     {
         "name": "Brushless impact driver",
         "Price": 444,
         "img":"https://i.ibb.co/DgMCzLN/joop-removebg-preview.png",
         "description":"djfjdjfjdjgfjdgjvdjgvjdfjgvjdjdjfgvjdfgjdfx",
-        "quantity":"1000"
+        "inStock":"1000",
+        "minQuantity":"100"
+
     }
 ]
