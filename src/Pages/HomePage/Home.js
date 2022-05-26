@@ -27,7 +27,11 @@ const Home = () => {
                    }
                </div>
             </section>
-            <Reviews/>
+            <section>
+                <div className='mx-auto'>
+                <Reviews/>
+                </div>
+            </section>
             <section>
                 <div className='flex justify-center items-center'>
                 <BussinessSummary/>
