@@ -8,6 +8,7 @@ import Loading from '../Shared/Loading';
 const SocialLogin = () => {
 
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    
     const [token] = UseToken(user)
     const navigate = useNavigate()
     const location = useLocation()
@@ -15,14 +16,14 @@ const SocialLogin = () => {
 
     useEffect(() => {
         if (token) {
-            console.log('hee')
+            
             navigate(from, { replace: true });
         }
     }, [token, navigate, from])
 
 
-    console.log(user, token)
     
+
 
 
     const handeGoogleSignIn = () => {
@@ -30,7 +31,7 @@ const SocialLogin = () => {
     }
 
     return (
-        <div class="form-control mt-6 w-[330px]">
+        <div className="form-control mt-6 w-[330px]">
             <button onClick={handeGoogleSignIn} className='btn btn-primary'>google sign in</button>
         </div>
     );

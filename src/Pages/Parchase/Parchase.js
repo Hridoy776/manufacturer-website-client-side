@@ -9,10 +9,10 @@ import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 import Loading from '../Shared/Loading';
 const Parchase = () => {
     const [user] = useAuthState(auth)
-    const[product,setProduct]=useState(null)
+    
     const [userinformation, setUserInformation] = useState({})
     const { id } = useParams()
-    
+
     const { data: tool, isLoading, refetch } = useQuery('tool', () => fetch(`http://localhost:5000/tool/${id}`)
         .then(res => res.json()))
 
@@ -20,33 +20,41 @@ const Parchase = () => {
     const email = user?.email;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${email}`)
+        fetch(`http://localhost:5000/user/${email}`,{
+            method:'GET',
+            headers: {
+                authorization:`Bearer ${localStorage.getItem("access-token")}`
+            },
+        })
             .then(res => res.json())
             .then(data => setUserInformation(data))
     }, [email])
-    if(isLoading){
-        return <Loading/>
+    if (isLoading) {
+        return <Loading />
     }
-
+    
     return (
         <div>
             <Navbar />
             <div>
-                <div class="card lg:card-side bg-base-100 shadow-xl">
+                <div className="card lg:card-side bg-base-100 shadow-xl">
                     <figure><img src={tool.img} alt="Album" /></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">{tool.name}</h2>
+                    <div className="card-body">
+                        <h2 className="card-title">{tool.name}</h2>
                         <p>price:{tool.Price}</p>
                         <p>quantity:{tool.inStock}</p>
                         <p>Min oder quantity:{tool.minQuantity}</p>
-                        <div class="card-actions justify-end">
-                            <label for="order-modal" class="btn modal-button">open modal</label>
+                        <div className="card-actions justify-end">
+                            <label htmlFor="order-modal" className="btn modal-button">open modal</label>
                         </div>
                     </div>
-                   
-                        <OrderModal refetch={refetch} setProduct={setProduct} tool={tool} />
-                    
-                    
+
+                    <OrderModal
+                     refetch={refetch}
+                     userinformation={userinformation}
+                       tool={tool} />
+
+
                 </div>
             </div>
 

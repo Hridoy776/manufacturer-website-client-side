@@ -14,17 +14,17 @@ const DashBoard = () => {
         <>
             <Navbar />
             <div className='min-h-screen'>
-                <div class="drawer drawer-mobile">
-                    <input id="dashBoard" type="checkbox" class="drawer-toggle" />
-                    <div class="drawer-content flex flex-col items-center justify-center">
+                <div className="drawer drawer-mobile">
+                    <input id="dashBoard" type="checkbox" className="drawer-toggle" />
+                    <div className="drawer-content flex flex-col items-center justify-center">
                         dashBoard
                         <Outlet />
 
 
                     </div>
-                    <div class="drawer-side">
-                        <label for="dashBoard" class="drawer-overlay"></label>
-                        <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+                    <div className="drawer-side">
+                        <label htmlFor="dashBoard" className="drawer-overlay"></label>
+                        <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
 
                             <li>
                                 {
@@ -42,11 +42,11 @@ const DashBoard = () => {
                             <li>
                                 {
                                     admin && <>
-                                               <Link to='/dashboard/makeadmin'>make admin</Link>
-                                               <Link to='/dashboard/manageAllOrder'>manage all order</Link>
-                                               <Link to='/dashboard/addAProduct'>add a product</Link>
-                                               <Link to='/dashboard/manageProducts'>manage product</Link>
-                                            </>
+                                        <Link to='/dashboard/makeadmin'>make admin</Link>
+                                        <Link to='/dashboard/manageAllOrder'>manage all order</Link>
+                                        <Link to='/dashboard/addAProduct'>add a product</Link>
+                                        <Link to='/dashboard/manageProducts'>manage product</Link>
+                                    </>
                                 }
                             </li>
                         </ul>

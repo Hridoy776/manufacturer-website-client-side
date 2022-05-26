@@ -5,11 +5,16 @@ const UseToken = (user) => {
 
   useEffect(() => {
     const email = user?.user?.email;
-    const updatedUser = { email };
+   
+    const updatedUser = {
+      name:user?.user?.displayName,
+       email:email };
     if (user) {
       fetch(`http://localhost:5000/user/${email}`, {
         method: "PUT",
-        
+        headers:{
+          'content-type':'application/json',
+        },
         body: JSON.stringify(updatedUser),
       })
         .then((res) => res.json())

@@ -13,7 +13,7 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-    const [token]=UseToken(user)
+    const [token] = UseToken(user)
     const navigate = useNavigate()
     const location = useLocation()
     let from = location.state?.from?.pathname || "/";
@@ -33,35 +33,35 @@ const Login = () => {
         const password = e.target.password.value;
         signInWithEmailAndPassword(email, password)
     }
-    
+
     return (
         <div className='flex flex-col min-h-screen justify-center items-center '>
             <p className='text-primary text-center text-4xl'>login</p>
             <div className=' card shadow-xl'>
-                <form onSubmit={handleLogin} class="card-body w-[400px] mx-auto">
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text">Email</span>
+                <form onSubmit={handleLogin} className="card-body w-[400px] mx-auto">
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Email</span>
                         </label>
-                        <input type="text" placeholder="email" name='email' class="input input-bordered" />
+                        <input type="text" placeholder="email" name='email' className="input input-bordered" />
                     </div>
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text">Password</span>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Password</span>
                         </label>
-                        <input type="text" name='password' placeholder="password" class="input input-bordered" />
-                        <label class="label">
-                            <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+                        <input type="text" name='password' placeholder="password" className="input input-bordered" />
+                        <label className="label">
+                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
                         <p>are you new to drill destruactor? <Link to='/signup'>please sign up</Link></p>
                     </div>
-                    <div class="form-control mt-6">
+                    <div className="form-control mt-6">
                         <input className='btn btn-primary' type="submit" value="login" />
                     </div>
                 </form>
             </div>
-            <div class="divider w-[400px] mx-auto mt-10">OR</div>
-            <SocialLogin  />
+            <div className="divider w-[400px] mx-auto mt-10">OR</div>
+            <SocialLogin />
         </div>
 
     );

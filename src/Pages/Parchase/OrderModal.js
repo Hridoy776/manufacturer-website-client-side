@@ -5,15 +5,16 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
-const OrderModal = ({ tool, refetch, setProduct }) => {
-    const [user] = useAuthState(auth)
+const OrderModal = ({ tool, userinformation }) => {
+    
     const { minQuantity } = tool;
-
+    const [user]=useAuthState(auth)
 
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate()
     const onSubmit = data => {
+        
         const order = {
             name: data.name,
             email: data.email,
@@ -21,9 +22,9 @@ const OrderModal = ({ tool, refetch, setProduct }) => {
             address: data.address,
             quantity: data.quantity,
             productName: tool.name,
-            price:parseInt(tool.Price) * parseInt(data.quantity),
+            price: parseInt(tool.Price) * parseInt(data.quantity),
         }
-        console.log(order)
+        
         fetch(`http://localhost:5000/order`, {
             method: 'POST',
             headers: {
@@ -44,26 +45,26 @@ const OrderModal = ({ tool, refetch, setProduct }) => {
     };
     return (
         <div>
-            <input type="checkbox" id="order-modal" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
+            <input type="checkbox" id="order-modal" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
                     <form onSubmit={handleSubmit(onSubmit)} className="w-[350px]">
                         {/* register your input into the hook by invoking the "register" function */}
 
-                        <div class="form-control mt-3">
-                            <input defaultValue={user?.displayName} type="text" class="input input-bordered" {...register("name")} readOnly />
+                        <div className="form-control mt-3">
+                            <input defaultValue={user?.displayName} type="text" className="input input-bordered" {...register("name")} readOnly />
                         </div>
-                        <div class="form-control mt-3">
-                            <input defaultValue={user?.email} type="text" class="input input-bordered" {...register("email")} readOnly />
+                        <div className="form-control mt-3">
+                            <input defaultValue={user?.email} type="text" className="input input-bordered" {...register("email")} readOnly />
                         </div>
-                        <div class="form-control mt-3">
-                            <input type="text" placeholder='address' class="input input-bordered" {...register("address")} />
+                        <div className="form-control mt-3">
+                            <input type="text" placeholder='address' className="input input-bordered" {...register("address")} />
                         </div>
-                        <div class="form-control mt-3">
-                            <input type="text" placeholder='phone' class="input input-bordered" {...register("phone")} />
+                        <div className="form-control mt-3">
+                            <input type="text" placeholder='phone' className="input input-bordered" {...register("phone")} />
                         </div>
-                        <div class="form-control mt-3">
-                            <input defaultValue={minQuantity} type="text" class="input input-bordered" {...register("quantity", {
+                        <div className="form-control mt-3">
+                            <input defaultValue={minQuantity} type="text" className="input input-bordered" {...register("quantity", {
                                 min: {
                                     value: minQuantity,
                                     message: 'please try to order minimum 1000' // JS only: <p>error message</p> TS only support string
@@ -84,7 +85,7 @@ const OrderModal = ({ tool, refetch, setProduct }) => {
                                 </span>
                             )}
                         </div>
-                        <div class="form-control mt-3">
+                        <div className="form-control mt-3">
                             <input className='btn btn-primary' type="submit" value='confirm' disabled={errors?.quantity?.message} />
                         </div>
 
@@ -95,7 +96,7 @@ const OrderModal = ({ tool, refetch, setProduct }) => {
 
 
                     </form>
-                    <label for="order-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label htmlFor="order-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                 </div>
             </div>
         </div>

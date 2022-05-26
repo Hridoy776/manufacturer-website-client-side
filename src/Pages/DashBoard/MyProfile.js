@@ -19,7 +19,7 @@ const MyProfile = () => {
     }
 
     const onSubmit = data => {
-        
+
         const information = {
             name: data.name,
             email: data.email,
@@ -33,7 +33,7 @@ const MyProfile = () => {
         fetch(`http://localhost:5000/user/information/${user.email}`, {
             method: 'PUT',
             headers: {
-                'content-type':'application/json',
+                'content-type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem("access-token")}`
             },
             body: JSON.stringify(information)
@@ -48,25 +48,25 @@ const MyProfile = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="w-[350px]">
                 {/* register your input into the hook by invoking the "register" function */}
 
-                <div class="form-control mt-3">
-                    <input defaultValue={user?.displayName} type="text" class="input input-bordered" {...register("name")} readOnly />
+                <div className="form-control mt-3">
+                    <input defaultValue={user?.displayName} type="text" className="input input-bordered" {...register("name")} readOnly />
                 </div>
-                <div class="form-control mt-3">
-                    <input defaultValue={user?.email} type="text" class="input input-bordered" {...register("email")} readOnly />
+                <div className="form-control mt-3">
+                    <input defaultValue={user?.email} type="text" className="input input-bordered" {...register("email")} readOnly />
                 </div>
-                <div class="form-control mt-3">
-                    <input type="number" placeholder='phone' class="input input-bordered" {...register("phone")} />
+                <div className="form-control mt-3">
+                    <input type="number" placeholder='phone' className="input input-bordered" {...register("phone")} />
                 </div>
-                <div class="form-control mt-3">
-                    <input type="text" placeholder='education' class="input input-bordered" {...register("education")} />
+                <div className="form-control mt-3">
+                    <input type="text" placeholder='education' className="input input-bordered" {...register("education")} />
                 </div>
-                <div class="form-control mt-3">
-                    <input type="text" placeholder='location' class="input input-bordered" {...register("location")} />
+                <div className="form-control mt-3">
+                    <input type="text" placeholder='location' className="input input-bordered" {...register("location")} />
                 </div>
-                <div class="form-control mt-3">
-                    <input type="link" placeholder='linked link' class="input input-bordered" {...register("linkedIn")} />
+                <div className="form-control mt-3">
+                    <input type="link" placeholder='linked link' className="input input-bordered" {...register("linkedIn")} />
                 </div>
-                <div class="form-control mt-3">
+                <div className="form-control mt-3">
                     <input className='btn btn-primary' type="submit" value='save' />
                 </div>
             </form>

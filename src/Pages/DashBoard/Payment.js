@@ -20,20 +20,20 @@ const Payment = () => {
     }
 
     return (
-        <div class="hero min-h-screen ">
-            <div class="w-full">
-                <div class="card mb-5 w-full max-w-sm shadow-2xl bg-base-100">
-                    <div class="card-body">
-                        <h2 class="card-title">{order.productName}</h2>
+        <div className="hero min-h-screen ">
+            <div className="w-full">
+                <div className="card mb-5 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card-body">
+                        <h2 className="card-title">{order.productName}</h2>
                         <p>you have to pay:{order.price} tk</p>
 
                     </div>
                 </div>
-                <div class="card w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card w-full max-w-sm shadow-2xl bg-base-100">
                     <div className='card-body'>
-                    <Elements stripe={stripePromise}>
-                        <CheckoutForm order={order} />
-                    </Elements>
+                        <Elements stripe={stripePromise}>
+                            <CheckoutForm order={order} />
+                        </Elements>
                     </div>
                 </div>
             </div>
