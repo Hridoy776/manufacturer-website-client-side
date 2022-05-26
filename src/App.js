@@ -22,6 +22,7 @@ import ManageAllOrder from './Pages/DashBoard/ManageAllOrder';
 import ManageProduct from './Pages/DashBoard/ManageProduct';
 import AddProduct from './Pages/DashBoard/AddProduct';
 import RequireAdmin from './Pages/Login/RequireAdmin'
+import Payment from './Pages/DashBoard/Payment';
 function App() {
   return (
     <div className='max-w-7xl mx-auto'>
@@ -39,6 +40,7 @@ function App() {
             <Route index element={<MyOrder/>}/>
             <Route path='addreview' element={<AddReview/>}/>
             <Route path='myprofile' element={<MyProfile/>}/>
+            <Route path='payment/:id' element={<Payment/>}/>
             <Route path='makeadmin' element={<RequireAdmin><MakeAdmin/></RequireAdmin>}/>
             <Route path='manageAllOrder' element={<RequireAdmin><ManageAllOrder/></RequireAdmin>}/>
             <Route path='manageProducts' element={<RequireAdmin><ManageProduct/></RequireAdmin>}/>

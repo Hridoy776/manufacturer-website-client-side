@@ -13,7 +13,7 @@ const Home = () => {
             .then(res => res.json())
             .then(data => setTools(data))
     }, [])
-    console.log(tools)
+    
     return (
         <div>
             <Navbar/>

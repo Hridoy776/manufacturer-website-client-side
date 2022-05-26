@@ -16,7 +16,7 @@ const MyOrder = () => {
     if (isLoading) {
         return <Loading />
     }
-    console.log(orders)
+   
     return (
         <div class="overflow-x-auto">
             <table class="table w-full">

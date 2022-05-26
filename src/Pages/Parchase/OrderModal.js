@@ -20,8 +20,10 @@ const OrderModal = ({ tool, refetch, setProduct }) => {
             phone: data.phone,
             address: data.address,
             quantity: data.quantity,
-            productName: tool.name
+            productName: tool.name,
+            price:parseInt(tool.Price) * parseInt(data.quantity),
         }
+        console.log(order)
         fetch(`http://localhost:5000/order`, {
             method: 'POST',
             headers: {
@@ -42,10 +44,6 @@ const OrderModal = ({ tool, refetch, setProduct }) => {
     };
     return (
         <div>
-
-
-
-
             <input type="checkbox" id="order-modal" class="modal-toggle" />
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
