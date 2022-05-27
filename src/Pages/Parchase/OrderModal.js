@@ -64,7 +64,7 @@ const OrderModal = ({ tool, userinformation }) => {
                             <input type="text" placeholder='phone' className="input input-bordered" {...register("phone")} />
                         </div>
                         <div className="form-control mt-3">
-                            <input defaultValue={minQuantity} type="text" className="input input-bordered" {...register("quantity", {
+                            <input  defaultValue={minQuantity} type="text" className="input input-bordered" {...register("quantity", {
                                 min: {
                                     value: minQuantity,
                                     message: 'please try to order minimum 1000' // JS only: <p>error message</p> TS only support string
@@ -72,6 +72,9 @@ const OrderModal = ({ tool, userinformation }) => {
                                 max: {
                                     value: 2000,
                                     message: 'you can not order more than available quantity'
+                                },
+                                onChange:(e)=>{
+                                    
                                 }
                             })} />
                             {errors.quantity?.type === "min" && (

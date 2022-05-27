@@ -8,17 +8,19 @@ import CheckoutForm from './CheckoutForm';
 const stripePromise = loadStripe('pk_test_51L2BWeGqC6u9CFvqa03umvlhC920kwNye8aK16yuYUelTPy1BgpEZIteq85TQ4E8fvRrD95g1kiW2g54Lfk0n10a00HW7Ezofd');
 const Payment = () => {
     const { id } = useParams();
-
-    const { data: order, isLoading } = useQuery(['order', id], () => fetch(`http://localhost:5000/order/${id}`, {
+    console.log(id)
+    const { data: order,error, isLoading } = useQuery(['order', id], () => fetch(`http://localhost:5000/order/${id}`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem("access-token")}`
         }
     }).then(res => res.json()))
+    console.log(order)
+    console.log(error)
     if (isLoading) {
         return <Loading />
     }
-
+    
     return (
         <div className="hero min-h-screen ">
             <div className="w-full">

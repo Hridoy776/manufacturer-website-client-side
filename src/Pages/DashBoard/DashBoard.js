@@ -30,14 +30,17 @@ const DashBoard = () => {
                                 {
                                     !admin && <>
                                         <Link to='/dashboard/addreview'>add a review</Link>
-                                        <Link to='/dashboard'>my order</Link>
+                                        <Link to='/dashboard/myprofile'>my profile</Link>
 
                                     </>
                                 }
 
                             </li>
                             <li>
-                                <Link to='/dashboard/myprofile'>my profile</Link>
+                                <Link to='/dashboard/myorder'>my order</Link>
+                            </li>
+                            <li>
+                                <Link to='/dashboard'>Wellcome</Link>
                             </li>
                             <li>
                                 {

@@ -51,7 +51,7 @@ const OrderRows = ({ order, index,refetch }) => {
             <td>{email}</td>
             <td>{quantity}</td>
             <td><>
-            {(price && !paid) && <Link to={`/dashboard/payment/${_id}`}><button className="btn btn-outline btn-xs btn-secondary">pay</button></Link>}
+            {(price && !paid) && <Link to={`/dashboard/myorder/payment/${_id}`}><button className="btn btn-outline btn-xs btn-secondary">pay</button></Link>}
             {(price && paid) && <span className="text-primary">paid</span>}
             </></td>
             <td>{(price && !paid) && <button onClick={cancelOrder} className='btn btn-outline btn-xs btn-secondary'>cancel</button>}</td>
