@@ -11,7 +11,7 @@ const Home = () => {
     useEffect(() => {
         fetch('http://localhost:5000/tools')
             .then(res => res.json())
-            .then(data => setTools(data))
+            .then(data => setTools(data.reverse()))
     }, [])
     
     return (
@@ -21,7 +21,7 @@ const Home = () => {
             <section>
                <div className='grid grid-cols-1 sm:grid-col-2 lg:grid-cols-3  gap-10 p-5'>
                    {
-                       tools.map(tool=><Tools
+                       tools.slice(0,6).map(tool=><Tools
                          key={tool._id}
                          tool={tool}/>)
                    }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Tools = ({ tool }) => {
-    const { _id, name, img, Price, minQuantity, inStock, description } = tool;
+    const { _id, name, img, price, minQuantity, inStock, description } = tool;
     const navigate = useNavigate()
     const handleParchase = () => {
         navigate(`/parchase/${_id}`)
@@ -15,8 +15,9 @@ const Tools = ({ tool }) => {
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{name}</h2>
-                <p>price:{Price}</p>
+                <p>price:{price}</p>
                 <p>quantity:{inStock}</p>
+                <p>mimimum order :{minQuantity}</p>
                 <p>{description}</p>
                 <div className="card-actions">
                     <button onClick={handleParchase} className="btn btn-primary">Buy Now</button>
