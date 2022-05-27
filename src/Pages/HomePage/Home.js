@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import useTools from '../../Hooks/useTools';
 import Banner from './Banner';
 import BussinessSummary from './BussinessSummary';
 import Footer from './Footer';
@@ -7,12 +8,7 @@ import Reviews from './Reviews';
 import Tools from './Tools';
 
 const Home = () => {
-    const [tools, setTools] = useState([])
-    useEffect(() => {
-        fetch('http://localhost:5000/tools')
-            .then(res => res.json())
-            .then(data => setTools(data.reverse()))
-    }, [])
+    const[tools]=useTools('http://localhost:5000/tools')
     
     return (
         <div>
