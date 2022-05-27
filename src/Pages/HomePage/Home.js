@@ -8,32 +8,32 @@ import Reviews from './Reviews';
 import Tools from './Tools';
 
 const Home = () => {
-    const[tools]=useTools('http://localhost:5000/tools')
-    
+    const [tools] = useTools('https://tranquil-brook-25862.herokuapp.com/tools')
+
     return (
         <div>
-            <Navbar/>
-            <Banner/>
+            <Navbar />
+            <Banner />
             <section>
-               <div className='grid grid-cols-1 sm:grid-col-2 lg:grid-cols-3  gap-10 p-5'>
-                   {
-                       tools.slice(0,6).map(tool=><Tools
-                         key={tool._id}
-                         tool={tool}/>)
-                   }
-               </div>
+                <div className='grid grid-cols-1 sm:grid-col-2 lg:grid-cols-3  gap-10 p-5'>
+                    {
+                        tools.slice(0, 6).map(tool => <Tools
+                            key={tool._id}
+                            tool={tool} />)
+                    }
+                </div>
             </section>
             <section>
                 <div className='mx-auto'>
-                <Reviews/>
+                    <Reviews />
                 </div>
             </section>
             <section>
                 <div className='flex justify-center items-center'>
-                <BussinessSummary/>
+                    <BussinessSummary />
                 </div>
             </section>
-            <Footer/>
+            <Footer />
         </div>
     );
 };

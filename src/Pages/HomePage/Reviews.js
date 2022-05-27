@@ -4,12 +4,12 @@ import Loading from '../Shared/Loading';
 import ReactStars from "react-rating-stars-component";
 const Reviews = () => {
 
-    const { data: reviews, isLoading } = useQuery('reviews', () => fetch('http://localhost:5000/reviews')
+    const { data: reviews, isLoading } = useQuery('reviews', () => fetch('https://tranquil-brook-25862.herokuapp.com/reviews')
         .then(res => res.json()))
     if (isLoading) {
         return <Loading />
     }
-    
+
     return (
         <div className='grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
             {

@@ -7,7 +7,7 @@ import OrderRows from './OrderRows';
 
 const MyOrder = () => {
     const [user] = useAuthState(auth)
-    const { data: orders, isLoading,refetch } = useQuery('orders', () => fetch(`http://localhost:5000/order?email=${user.email}`, {
+    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`https://tranquil-brook-25862.herokuapp.com/order?email=${user.email}`, {
         method: 'get',
         headers: {
             'authorization': `Bearer ${localStorage.getItem("access-token")}`
@@ -35,7 +35,7 @@ const MyOrder = () => {
 
                     {
                         orders.map((order, index) => <OrderRows order={order} index={index}
-                        refetch={refetch} key={order._id} />)
+                            refetch={refetch} key={order._id} />)
                     }
 
                 </tbody>

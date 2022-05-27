@@ -9,21 +9,21 @@ import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 import Loading from '../Shared/Loading';
 const Parchase = () => {
     const [user] = useAuthState(auth)
-    
+
     const [userinformation, setUserInformation] = useState({})
     const { id } = useParams()
 
-    const { data: tool, isLoading, refetch } = useQuery('tool', () => fetch(`http://localhost:5000/tool/${id}`)
+    const { data: tool, isLoading, refetch } = useQuery('tool', () => fetch(`https://tranquil-brook-25862.herokuapp.com/tool/${id}`)
         .then(res => res.json()))
 
 
     const email = user?.email;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${email}`,{
-            method:'GET',
+        fetch(`https://tranquil-brook-25862.herokuapp.com/user/${email}`, {
+            method: 'GET',
             headers: {
-                authorization:`Bearer ${localStorage.getItem("access-token")}`
+                authorization: `Bearer ${localStorage.getItem("access-token")}`
             },
         })
             .then(res => res.json())
@@ -32,7 +32,7 @@ const Parchase = () => {
     if (isLoading) {
         return <Loading />
     }
-    
+
     return (
         <div>
             <Navbar />
@@ -50,9 +50,9 @@ const Parchase = () => {
                     </div>
 
                     <OrderModal
-                     refetch={refetch}
-                     userinformation={userinformation}
-                       tool={tool} />
+                        refetch={refetch}
+                        userinformation={userinformation}
+                        tool={tool} />
 
 
                 </div>

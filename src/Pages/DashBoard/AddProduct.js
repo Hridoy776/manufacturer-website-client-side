@@ -5,29 +5,29 @@ import { toast } from 'react-toastify';
 const AddProduct = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const onSubmit=(data)=>{
+    const onSubmit = (data) => {
         console.log(data)
-        const newTool={
-            name:data.name,
-            price:data.price,
-            img:data.img,
-            description:data.description,
-            inStock:data.inStock,
-            minQuantity:data.minQuantity,
+        const newTool = {
+            name: data.name,
+            price: data.price,
+            img: data.img,
+            description: data.description,
+            inStock: data.inStock,
+            minQuantity: data.minQuantity,
         }
-        fetch('http://localhost:5000/tools',{
-            method:'POST',
-            headers:{
-                'content-type':'application/json',
-                authorization:`Bearer ${localStorage.getItem('access-token')}`
+        fetch('https://tranquil-brook-25862.herokuapp.com/tools', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('access-token')}`
             },
-            body:JSON.stringify(newTool)
-        }).then(res=>res.json())
-        .then(data=>{
-            if(data.success){
-                toast.success('successfully product added')
-            }
-        })
+            body: JSON.stringify(newTool)
+        }).then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    toast.success('successfully product added')
+                }
+            })
     }
     return (
         <div>
@@ -37,10 +37,10 @@ const AddProduct = () => {
                 {/* register your input into the hook by invoking the "register" function */}
 
                 <div className="form-control mt-3">
-                    <input  type="text" placeholder='product name' className="input input-bordered" {...register("name")}  />
+                    <input type="text" placeholder='product name' className="input input-bordered" {...register("name")} />
                 </div>
                 <div className="form-control mt-3">
-                    <input type="number" placeholder='price' className="input input-bordered" {...register("price")}  />
+                    <input type="number" placeholder='price' className="input input-bordered" {...register("price")} />
                 </div>
                 <div className="form-control mt-3">
                     <input type="text" placeholder='img' className="input input-bordered" {...register("img")} />

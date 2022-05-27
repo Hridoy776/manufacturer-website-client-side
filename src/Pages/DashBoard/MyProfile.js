@@ -8,7 +8,7 @@ import Loading from '../Shared/Loading';
 const MyProfile = () => {
     const [user] = useAuthState(auth)
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { data: myInfo, isLoading } = useQuery('user', () => fetch(`http://localhost:5000/user/${user.email}`, {
+    const { data: myInfo, isLoading } = useQuery('user', () => fetch(`https://tranquil-brook-25862.herokuapp.com/user/${user.email}`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem("access-token")}`
@@ -30,7 +30,7 @@ const MyProfile = () => {
 
         }
         console.log(information)
-        fetch(`http://localhost:5000/user/information/${user.email}`, {
+        fetch(`https://tranquil-brook-25862.herokuapp.com/user/information/${user.email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

@@ -12,7 +12,7 @@ const CheckoutForm = ({ order }) => {
 
     const { price, _id } = order;
     useEffect(() => {
-        fetch(`http://localhost:5000/create-payment-intent`, {
+        fetch(`https://tranquil-brook-25862.herokuapp.com/create-payment-intent`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -72,21 +72,21 @@ const CheckoutForm = ({ order }) => {
             setSuccess('your payment is completed successfully')
             setTransactionId(paymentIntent.id)
             setCardError('')
-                const payment={
-                    order:_id,
-                    transactionId:paymentIntent.id
-                }
-            fetch(`http://localhost:5000/order/${_id}`,{
+            const payment = {
+                order: _id,
+                transactionId: paymentIntent.id
+            }
+            fetch(`https://tranquil-brook-25862.herokuapp.com/order/${_id}`, {
                 method: 'PATCH',
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `Bearer ${localStorage.getItem("access-token")}`
-            },
-            body: JSON.stringify(payment)
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': `Bearer ${localStorage.getItem("access-token")}`
+                },
+                body: JSON.stringify(payment)
             })
-            .then(res=>res.json())
-            .then(data=>console.log(data))
-            
+                .then(res => res.json())
+                .then(data => console.log(data))
+
             setProcessing(false)
         }
     }

@@ -9,7 +9,7 @@ const stripePromise = loadStripe('pk_test_51L2BWeGqC6u9CFvqa03umvlhC920kwNye8aK1
 const Payment = () => {
     const { id } = useParams();
     console.log(id)
-    const { data: order,error, isLoading } = useQuery(['order', id], () => fetch(`http://localhost:5000/order/${id}`, {
+    const { data: order, error, isLoading } = useQuery(['order', id], () => fetch(`https://tranquil-brook-25862.herokuapp.com/order/${id}`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem("access-token")}`
@@ -20,7 +20,7 @@ const Payment = () => {
     if (isLoading) {
         return <Loading />
     }
-    
+
     return (
         <div className="hero min-h-screen ">
             <div className="w-full">

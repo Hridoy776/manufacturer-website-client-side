@@ -5,10 +5,10 @@ import Swal from 'sweetalert2';
 import useTools from '../../Hooks/useTools';
 
 const ManageProduct = () => {
-    const [tools,refetch] = useTools('http://localhost:5000/tools')
+    const [tools, refetch] = useTools('https://tranquil-brook-25862.herokuapp.com/tools')
 
-    const handleDElete=(id)=>{
-        
+    const handleDElete = (id) => {
+
         Swal.fire({
             title: 'Are you sure to cancel order?',
             text: "You won't be able to revert this!",
@@ -17,29 +17,29 @@ const ManageProduct = () => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
 
-         fetch(`http://localhost:5000/tool/${id}`,{
-             method:'DELETE',
-             headers:{
-                 'content-type':'application/json'
-             }
-         })
-         .then(res=>res.json())
-         .then(data=>{
-            if(data.deletedCount>0){
-                toast.success('your order has been canceled')
-            }
-         })
+                fetch(`https://tranquil-brook-25862.herokuapp.com/tool/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            toast.success('your order has been canceled')
+                        }
+                    })
 
-         Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
-        }
-      })
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
     }
     return (
         <div className='min-h-screen'>
@@ -59,7 +59,7 @@ const ManageProduct = () => {
                     <tbody>
 
                         {
-                            tools.map((tool,index) => <tr key={tool._id}>
+                            tools.map((tool, index) => <tr key={tool._id}>
                                 <td>{index + 1}</td>
                                 <td><div class="avatar">
                                     <div class="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -67,8 +67,8 @@ const ManageProduct = () => {
                                     </div>
                                 </div></td>
                                 <th>{tool.name}</th>
-                                <td><button onClick={()=>handleDElete(tool._id)} className='btn btn-primary  btn-xs'>delete</button></td>
-                                
+                                <td><button onClick={() => handleDElete(tool._id)} className='btn btn-primary  btn-xs'>delete</button></td>
+
                             </tr>)
                         }
 

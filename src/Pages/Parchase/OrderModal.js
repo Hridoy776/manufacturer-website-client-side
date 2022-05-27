@@ -6,15 +6,15 @@ import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const OrderModal = ({ tool, userinformation }) => {
-    
+
     const { minQuantity } = tool;
-    const [user]=useAuthState(auth)
+    const [user] = useAuthState(auth)
 
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate()
     const onSubmit = data => {
-        
+
         const order = {
             name: data.name,
             email: data.email,
@@ -24,8 +24,8 @@ const OrderModal = ({ tool, userinformation }) => {
             productName: tool.name,
             price: parseInt(tool.Price) * parseInt(data.quantity),
         }
-        
-        fetch(`http://localhost:5000/order`, {
+
+        fetch(`https://tranquil-brook-25862.herokuapp.com/order`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -64,7 +64,7 @@ const OrderModal = ({ tool, userinformation }) => {
                             <input type="text" placeholder='phone' className="input input-bordered" {...register("phone")} />
                         </div>
                         <div className="form-control mt-3">
-                            <input  defaultValue={minQuantity} type="text" className="input input-bordered" {...register("quantity", {
+                            <input defaultValue={minQuantity} type="text" className="input input-bordered" {...register("quantity", {
                                 min: {
                                     value: minQuantity,
                                     message: 'please try to order minimum 1000' // JS only: <p>error message</p> TS only support string
@@ -73,8 +73,8 @@ const OrderModal = ({ tool, userinformation }) => {
                                     value: 2000,
                                     message: 'you can not order more than available quantity'
                                 },
-                                onChange:(e)=>{
-                                    
+                                onChange: (e) => {
+
                                 }
                             })} />
                             {errors.quantity?.type === "min" && (

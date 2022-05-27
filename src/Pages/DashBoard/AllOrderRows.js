@@ -2,24 +2,24 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 
-const AllOrderRows = ({order,refetch}) => {
-    
-    const {_id,name, email, productName,paid,status}=order;
+const AllOrderRows = ({ order, refetch }) => {
 
-    const handleShipping=()=>{
-        fetch(`http://localhost:5000/order/shipping/${_id}`,{
-                method: 'PATCH',
+    const { _id, name, email, productName, paid, status } = order;
+
+    const handleShipping = () => {
+        fetch(`https://tranquil-brook-25862.herokuapp.com/order/shipping/${_id}`, {
+            method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem("access-token")}`
             }
-            
-            })
-            .then(res=>res.json())
-            .then(data=>console.log(data))
-            refetch()
+
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+        refetch()
     }
-    const handleDelete=()=>{
+    const handleDelete = () => {
         Swal.fire({
             title: 'Are you sure to cancel order?',
             text: "You won't be able to revert this!",
@@ -28,33 +28,33 @@ const AllOrderRows = ({order,refetch}) => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/order/${_id}`,{
-            method:'DELETE',
-            headers:{
-                authorization:`Bearer ${localStorage.getItem('access-token')}`
-            }
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            if(data.deletedCount>0){
-                toast.success(' order has been canceled')
-                refetch()
+                fetch(`https://tranquil-brook-25862.herokuapp.com/order/${_id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('access-token')}`
+                    }
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            toast.success(' order has been canceled')
+                            refetch()
+                        }
+                    })
+
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
             }
         })
 
-              Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-              )
-            }
-          })
-         
     }
-    
+
     return (
         <tr>
             <th>{name}</th>
@@ -62,13 +62,13 @@ const AllOrderRows = ({order,refetch}) => {
             <td>{productName}</td>
             <td><div>
                 <>
-                <p>{!paid && <span>unpaid</span>}</p>
-                <p>{!paid && <button onClick={handleDelete} className='btn btn-xs btn-primary'>delete</button>}</p>
-            <p>{status && <span>{status}</span>} {status && <button className='btn btn-xs btn-primary'
-            onClick={handleShipping} 
-            disabled={status==="shipped"}>to ship</button>}</p>
+                    <p>{!paid && <span>unpaid</span>}</p>
+                    <p>{!paid && <button onClick={handleDelete} className='btn btn-xs btn-primary'>delete</button>}</p>
+                    <p>{status && <span>{status}</span>} {status && <button className='btn btn-xs btn-primary'
+                        onClick={handleShipping}
+                        disabled={status === "shipped"}>to ship</button>}</p>
                 </>
-                </div></td>
+            </div></td>
 
         </tr>
     );

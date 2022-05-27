@@ -8,7 +8,7 @@ import AllOrderRows from './AllOrderRows';
 
 const ManageAllOrder = () => {
     const [user] = useAuthState(auth)
-    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`http://localhost:5000/allorder/${user.email}`, {
+    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`https://tranquil-brook-25862.herokuapp.com/allorder/${user.email}`, {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('access-token')}`
         }
@@ -20,7 +20,7 @@ const ManageAllOrder = () => {
     return (
         <div class="overflow-x-auto">
             <table class="table w-full">
-                
+
                 <thead>
                     <tr>
                         <th></th>
@@ -31,11 +31,11 @@ const ManageAllOrder = () => {
                 </thead>
                 <tbody>
                     {
-                        orders.map((order,index)=><AllOrderRows 
-                        order={order}
-                        index={index}
-                        refetch={refetch}
-                        key={order._id}  />)
+                        orders.map((order, index) => <AllOrderRows
+                            order={order}
+                            index={index}
+                            refetch={refetch}
+                            key={order._id} />)
                     }
                 </tbody>
             </table>
