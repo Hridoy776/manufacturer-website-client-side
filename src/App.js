@@ -24,6 +24,8 @@ import AddProduct from './Pages/DashBoard/AddProduct';
 import RequireAdmin from './Pages/Login/RequireAdmin'
 import Payment from './Pages/DashBoard/Payment';
 import Wellcome from './Pages/DashBoard/Wellcome';
+import Portfolio from './Pages/Portfolio/Portfolio';
+import Blog from './Pages/Blog/Blog';
 function App() {
   return (
     <div className='max-w-7xl mx-auto'>
@@ -49,6 +51,8 @@ function App() {
             <Route path='addAProduct' element={<RequireAdmin><AddProduct/></RequireAdmin>}/>
             
             </Route>
+            <Route path='/portfolio' element={<Portfolio/>} />
+            <Route path='/blog' element={<Blog/>} />
         <Route path="/login" element={<Login></Login>} />
         <Route path="/signup" element={<SignUp></SignUp>} />
         <Route path='*' element={<NotFound/>} />

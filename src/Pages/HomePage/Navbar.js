@@ -11,9 +11,9 @@ const Navbar = () => {
     const home = <>
         <NavLink to='/home'>home</NavLink>
 
-        <NavLink to='/'>about</NavLink>
+        <NavLink to='/blog'>blog</NavLink>
         <NavLink to='/dashboard'>dashboard</NavLink>
-        <NavLink to='/'>review</NavLink>
+        <NavLink to='/portfolio'>portfolio</NavLink>
         {
             user ? <button onClick={() => {
                 signOut(auth)
