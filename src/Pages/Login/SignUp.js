@@ -27,17 +27,20 @@ const SignUp = () => {
     if (loading || updating) {
         return <Loading />
     }
+    let errorElement;
+    if (error || updateError) {
+        errorElement = <p>{error.message}</p>
+    }
 
     const handleSignUp = async (e) => {
         e.preventDefault()
         const name = e.target.name.value;
-        const number = e.target.number.value;
-        const address = e.target.address.value;
+
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(name, number)
+
         await createUserWithEmailAndPassword(email, password)
-        await updateProfile({ displayName: name, phoneNumber: number, })
+        await updateProfile({ displayName: name })
     }
 
     return (
@@ -55,30 +58,19 @@ const SignUp = () => {
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="text" placeholder="email" name='email' className="input input-bordered" />
+                        <input type="text" required placeholder="email" name='email' className="input input-bordered" />
                     </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Number</span>
-                        </label>
-                        <input type="number" placeholder="number" name='number' className="input input-bordered" />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Address</span>
-                        </label>
-                        <input type="text" placeholder="address" name='address' className="input input-bordered" />
-                    </div>
+
+
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="text" name='password' placeholder="password" className="input input-bordered" />
-                        <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                        </label>
+                        <input type="text" name='password' placeholder="password" className="input input-bordered" required/>
+
                         <p>already have an account? <Link to='/login'>please login</Link></p>
                     </div>
+                    {errorElement}
                     <div className="form-control mt-6">
                         <input className='btn btn-primary' type="submit" value="signUp" />
                     </div>
