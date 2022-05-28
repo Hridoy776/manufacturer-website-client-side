@@ -22,7 +22,7 @@ const OrderModal = ({ tool, userinformation }) => {
             address: data.address,
             quantity: data.quantity,
             productName: tool.name,
-            price: parseInt(tool.Price) * parseInt(data.quantity),
+            price: parseInt(tool.price) * parseInt(data.quantity),
         }
 
         fetch(`https://tranquil-brook-25862.herokuapp.com/order`, {
