@@ -11,9 +11,9 @@ const Reviews = () => {
     }
 
     return (
-        <div className='grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+        <div className='grid gap-10 grid-cols-1 md:grid-cols-2  lg:grid-cols-3 p-3'>
             {
-                reviews.map((review, index) => <div class="card w-96 bg-primary text-primary-content">
+                reviews.map((review, index) => <div class="card max-w-lg bg-primary text-primary-content">
                     <div key={index} class="card-body">
                         <h2 class="card-title">{review.name}</h2>
                         <p><ReactStars

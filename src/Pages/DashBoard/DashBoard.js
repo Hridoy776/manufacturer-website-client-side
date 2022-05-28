@@ -13,10 +13,10 @@ const DashBoard = () => {
     return (
         <>
             <Navbar />
-            <div className='min-h-screen'>
-                <div className="drawer drawer-mobile">
+            <div className='min-h-screen py-[100px]'>
+                <div className="drawer drawer-mobile ">
                     <input id="dashBoard" type="checkbox" className="drawer-toggle" />
-                    <div className="drawer-content flex flex-col items-center justify-center">
+                    <div className="drawer-content flex flex-col items-center ">
                         dashBoard
                         <Outlet />
 
@@ -30,14 +30,15 @@ const DashBoard = () => {
                                 {
                                     !admin && <>
                                         <Link to='/dashboard/addreview'>add a review</Link>
-                                        <Link to='/dashboard/myprofile'>my profile</Link>
-
+                                        
+                                        <Link to='/dashboard/myorder'>my order</Link>
                                     </>
                                 }
 
                             </li>
                             <li>
-                                <Link to='/dashboard/myorder'>my order</Link>
+                                
+                                <Link to='/dashboard/myprofile'>my profile</Link>
                             </li>
                             <li>
                                 <Link to='/dashboard'>Wellcome</Link>

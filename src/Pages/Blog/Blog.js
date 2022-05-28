@@ -4,8 +4,10 @@ import Navbar from '../HomePage/Navbar';
 
 const Blog = () => {
     return (
-        <div className='min-h-screen '>
-            <Navbar />
+        <>
+            
+         <div className='min-h-screen '>
+         <Navbar />
             <div className='my-10'>
                 <div className="lg:w-3/5 w-[90%] my-4 mx-auto border p-5 border-primary rounded-lg">
                     <p className='text-3xl text-primary font-medium mb-5'>optimiszing perfomance in a react application</p>
@@ -33,8 +35,10 @@ const Blog = () => {
                 </div>
                 
             </div>
-            <Footer />
+            
         </div>
+        <Footer />
+        </>
     );
 };
 
