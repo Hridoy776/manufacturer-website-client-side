@@ -27,6 +27,10 @@ const Login = () => {
     if (loading) {
         return <Loading />
     }
+    let errorElement;
+    if(error){
+        errorElement= <p className='text-xl text-red-500'>{error.message}</p>
+    }
     const handleLogin = (e) => {
         e.preventDefault()
         const email = e.target.email.value;
@@ -43,13 +47,14 @@ const Login = () => {
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="text" placeholder="email" name='email' className="input input-bordered" />
+                        <input type="text" placeholder="email" name='email' className="input input-bordered" required/>
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="text" name='password' placeholder="password" className="input input-bordered" />
+                        <input type="text" name='password' placeholder="password" className="input input-bordered" required />
+                        {errorElement}
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>

@@ -27,29 +27,29 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar fixed right-0 px-[100px] w-full z-[100] shadow-lg bg-primary text-white mx-auto">
-            <div className="navbar-start">
+        <div className="navbar fixed right-0 lg:px-[100px] w-full z-[100] shadow-lg bg-primary text-white mx-auto">
+            <div className="navbar ">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                     <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-10 shadow bg-secondary text-secondary-content  rounded-box w-52">
-                        <li>{home}</li>
+                        <li className='capitalize'>{home}</li>
 
 
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl">daisyUI</Link>
+                <Link to='/' className="btn   btn-ghost normal-case text-xl">dril destructor</Link>
             </div>
-            <div className="navbar-end hidden lg:flex">
+            <div className="navbar hidden lg:flex">
                 <ul className="menu menu-horizontal w-full p-0 ">
-                    <li>{home}</li>
+                    <li className='capitalize'>{home}</li>
 
                 </ul>
             </div>
-            <img className='w-10 mx-4 rounded-[50%]' src="https://api.lorem.space/image/face?hash=33791" alt='' />
+            
 
-            <div className="dropdown">
+            <div className="navbar-end dropdown">
                 <label htmlFor="dashBoard" tabIndex="0" className="btn btn-ghost lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                 </label>

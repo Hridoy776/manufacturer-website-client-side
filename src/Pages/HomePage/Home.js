@@ -8,10 +8,16 @@ import Reviews from './Reviews';
 import Service from './Service';
 import Tools from './Tools';
 import Subscribe from './Subscribe';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const Home = () => {
+    const [user,loading]=useAuthState(auth)
     const [tools] = useTools('https://tranquil-brook-25862.herokuapp.com/tools')
-
+        if(loading){
+            return <Loading/>
+        }
     return (
         <div className='mx-auto'>
             <Navbar />
