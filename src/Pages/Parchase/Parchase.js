@@ -41,7 +41,7 @@ const Parchase = () => {
                     <figure><img src={tool.img} alt="Album" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{tool.name}</h2>
-                        <p>price:{tool.Price}</p>
+                        <p>price:{tool.price}</p>
                         <p>quantity:{tool.inStock}</p>
                         <p>Min oder quantity:{tool.minQuantity}</p>
                         <div className="card-actions justify-end">

@@ -14,7 +14,7 @@ const OrderModal = ({ tool, userinformation }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate()
     const onSubmit = data => {
-
+    
         const order = {
             name: data.name,
             email: data.email,
@@ -24,7 +24,7 @@ const OrderModal = ({ tool, userinformation }) => {
             productName: tool.name,
             price: parseInt(tool.price) * parseInt(data.quantity),
         }
-
+        console.log(order)
         fetch(`https://tranquil-brook-25862.herokuapp.com/order`, {
             method: 'POST',
             headers: {
