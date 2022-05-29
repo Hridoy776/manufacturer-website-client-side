@@ -45,8 +45,8 @@ const ManageProduct = () => {
         <div className='min-h-screen'>
             {tools.length}
 
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
 
                     <thead>
                         <tr>
@@ -61,8 +61,8 @@ const ManageProduct = () => {
                         {
                             tools.map((tool, index) => <tr key={tool._id}>
                                 <td>{index + 1}</td>
-                                <td><div class="avatar">
-                                    <div class="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                <td><div className="avatar">
+                                    <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                         <img src={tool.img} alt='' />
                                     </div>
                                 </div></td>

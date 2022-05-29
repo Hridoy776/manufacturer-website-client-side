@@ -24,7 +24,7 @@ const OrderModal = ({ tool, userinformation }) => {
             productName: tool.name,
             price: parseInt(tool.price) * parseInt(data.quantity),
         }
-        console.log(order)
+        
         fetch(`https://tranquil-brook-25862.herokuapp.com/order`, {
             method: 'POST',
             headers: {
@@ -58,13 +58,13 @@ const OrderModal = ({ tool, userinformation }) => {
                             <input defaultValue={user?.email} type="text" className="input input-bordered" {...register("email")} readOnly />
                         </div>
                         <div className="form-control mt-3">
-                            <input type="text" placeholder='address' className="input input-bordered" {...register("address")} />
+                            <input required type="text" placeholder='address' className="input input-bordered" {...register("address")} />
                         </div>
                         <div className="form-control mt-3">
-                            <input type="text" placeholder='phone' className="input input-bordered" {...register("phone")} />
+                            <input required type="text" placeholder='phone' className="input input-bordered" {...register("phone")} />
                         </div>
                         <div className="form-control mt-3">
-                            <input defaultValue={minQuantity} type="text" className="input input-bordered" {...register("quantity", {
+                            <input required defaultValue={minQuantity} type="text" className="input input-bordered" {...register("quantity", {
                                 min: {
                                     value: minQuantity,
                                     message: 'please try to order minimum 1000' // JS only: <p>error message</p> TS only support string

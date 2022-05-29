@@ -22,7 +22,9 @@ const SocialLogin = () => {
     }, [token, navigate, from])
 
 
-    
+    if(loading){
+        return <Loading/>
+    }
 
 
 

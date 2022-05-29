@@ -13,11 +13,11 @@ import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
 const Home = () => {
-    const [user,loading]=useAuthState(auth)
+    const [user, loading] = useAuthState(auth)
     const [tools] = useTools('https://tranquil-brook-25862.herokuapp.com/tools')
-        if(loading){
-            return <Loading/>
-        }
+    if (loading) {
+        return <Loading />
+    }
     return (
         <div className='mx-auto'>
             <Navbar />
@@ -33,15 +33,15 @@ const Home = () => {
                 </div>
             </section>
             <section>
-            <p className='text-5xl text-primary font-medium my-16 text-center'>customer reviews</p>
+                <p className='text-5xl text-primary font-medium my-16 text-center'>customer reviews</p>
                 <div className='mx-auto'>
                     <Reviews />
                 </div>
             </section>
-            <div class="divider my-20"></div> 
+            <div className="divider my-20"></div>
             <section>
                 <div className='flex justify-center my-8'>
-                    <Service/>
+                    <Service />
                 </div>
             </section>
             <section>
@@ -51,7 +51,7 @@ const Home = () => {
             </section>
             <section>
                 <div className='my-8 flex justify-center'>
-                    <Subscribe/>
+                    <Subscribe />
                 </div>
             </section>
             <Footer />
