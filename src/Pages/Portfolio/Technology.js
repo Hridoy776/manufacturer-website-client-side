@@ -15,6 +15,10 @@ const Technology = () => {
                     <p className='text-xl'>node</p>
                     <p className='text-xl'>express</p>
                     <p className='text-xl'>mongodb</p>
+                    <p className='text-2xl text-center'>personal project</p>
+                    <button className='btn bnt-outline-btn-secondary'><a href="https://pristine-perfumes.web.app/">project-1</a></button>
+                    <button className='btn bnt-outline-btn-secondary'><a href="https://perfect-passion.firebaseapp.com/">project-2</a></button>
+                    <button className='btn bnt-outline-btn-secondary'><a href="https://dreamy-kitten-b446cc.netlify.app/">project-3</a></button>
                     
                 </div>
             </div>
