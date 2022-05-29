@@ -44,10 +44,10 @@ const SignUp = () => {
     }
 
     return (
-        <div className='flex flex-col min-h-screen justify-center items-center '>
+        <div className='flex flex-col my-auto min-h-screen justify-center items-center '>
             <p className='text-primary text-center text-4xl'>sign in</p>
             <div className=' card shadow-xl'>
-                <form onSubmit={handleSignUp} className="card-body w-[400px] mx-auto">
+                <form onSubmit={handleSignUp} className="card-body w-[350px] lg:w-[400px] mx-auto">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Name</span>
@@ -68,7 +68,7 @@ const SignUp = () => {
                         </label>
                         <input type="text" name='password' placeholder="password" className="input input-bordered" required/>
 
-                        <p>already have an account? <Link to='/login'>please login</Link></p>
+                        <p>already have an account? <Link className='text-primary' to='/login'>please login</Link></p>
                     </div>
                     {errorElement}
                     <div className="form-control mt-6">
@@ -76,8 +76,10 @@ const SignUp = () => {
                     </div>
                 </form>
             </div>
-            <div className="divider w-[400px] mx-auto mt-10">OR</div>
+            <div className="divider w-[350px] lg:w-[400px] mx-auto mt-10">OR</div>
+            <div className='mb-[200px]'>
             <SocialLogin />
+            </div>
         </div>
     );
 };

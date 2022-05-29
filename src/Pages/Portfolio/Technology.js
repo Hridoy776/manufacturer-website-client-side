@@ -3,7 +3,7 @@ import React from 'react';
 const Technology = () => {
     return (
         <div className=''>
-            <div className="card max-w-lg bg-primary text-primary-content">
+            <div className="card w-3/4 mx-auto lg:max-w-lg bg-primary text-primary-content mb-10">
                 <div className="card-body">
                     <h2 className="card-title">Technology as a web devoloper</h2>
                     <p className='text-xl'>html 5</p>

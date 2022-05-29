@@ -46,9 +46,9 @@ const OrderModal = ({ tool, userinformation }) => {
     return (
         <div>
             <input type="checkbox" id="order-modal" className="modal-toggle" />
-            <div className="modal modal-bottom sm:modal-middle">
+            <div className="modal modal-middle sm:modal-middle">
                 <div className="modal-box">
-                    <form onSubmit={handleSubmit(onSubmit)} className="w-[350px]">
+                    <form onSubmit={handleSubmit(onSubmit)} className="lg:w-[350px]">
                         {/* register your input into the hook by invoking the "register" function */}
 
                         <div className="form-control mt-3">

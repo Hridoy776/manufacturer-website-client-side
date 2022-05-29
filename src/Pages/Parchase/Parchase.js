@@ -36,10 +36,12 @@ const Parchase = () => {
     return (
         <div>
             <Navbar />
-            <div>
-                <div className="card lg:card-side bg-base-100 shadow-xl">
-                    <figure><img src={tool.img} alt="Album" /></figure>
-                    <div className="card-body">
+            <div className='py-[200px] min-h-screen'>
+                <div className="card  shadow-xl">
+                    <div>
+                    <figure><img className='w-1/4' src={tool.img} alt="Album" /></figure>
+                    </div>
+                    <div className="card-body ">
                         <h2 className="card-title">{tool.name}</h2>
                         <p>price:{tool.price}</p>
                         <p>quantity:{tool.inStock}</p>

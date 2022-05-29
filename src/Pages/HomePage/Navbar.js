@@ -39,7 +39,7 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                <Link to='/' className="btn   btn-ghost normal-case text-xl">dril destructor</Link>
+                <Link to='/' className="btn font-sans bold  btn-ghost normal-case text-xl">Dril destructor</Link>
             </div>
             <div className="navbar hidden lg:flex">
                 <ul className="menu menu-horizontal w-full p-0 ">
