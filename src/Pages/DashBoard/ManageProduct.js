@@ -43,7 +43,7 @@ const ManageProduct = () => {
     }
     return (
         <div className='min-h-screen'>
-            {tools.length}
+            <h1 className='text-4xl uppercase font-medium my-3 text-primary'>total product :{tools.length}</h1>
 
             <div className="overflow-x-auto">
                 <table className="table w-full">
@@ -51,9 +51,10 @@ const ManageProduct = () => {
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>img</th>
+                            <th>User name</th>
+                            <th>Action</th>
+                            
                         </tr>
                     </thead>
                     <tbody>

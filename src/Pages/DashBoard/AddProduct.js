@@ -31,7 +31,7 @@ const AddProduct = () => {
     }
     return (
         <div>
-            add a product
+            <h1 className='text-4xl text-primary font-medium text-center my-5 uppercase'>add a product</h1>
 
             <form onSubmit={handleSubmit(onSubmit)} className="w-[350px]">
                 {/* register your input into the hook by invoking the "register" function */}

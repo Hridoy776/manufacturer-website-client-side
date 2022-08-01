@@ -23,10 +23,11 @@ const ManageAllOrder = () => {
 
                 <thead>
                     <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Job</th>
-                        <th>Favorite Color</th>
+                        
+                        <th>User</th>
+                        <th>Email</th>
+                        <th>Product</th>
+                        <th>Shipment</th>   
                     </tr>
                 </thead>
                 <tbody>

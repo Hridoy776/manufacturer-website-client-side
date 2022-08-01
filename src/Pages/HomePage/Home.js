@@ -19,6 +19,7 @@ const Home = () => {
         return <Loading />
     }
     return (
+        <>
         <div className='mx-auto'>
             <Navbar />
             <Banner />
@@ -54,8 +55,10 @@ const Home = () => {
                     <Subscribe />
                 </div>
             </section>
-            <Footer />
+            
         </div>
+        <Footer />
+        </>
     );
 };
 
