@@ -13,36 +13,36 @@ const DashBoard = () => {
     return (
         <>
             <Navbar />
-            <div className='min-h-screen py-[100px]'>
+            <div className='min-h-screen pt-[80px]'>
                 <div className="drawer drawer-mobile ">
                     <input id="dashBoard" type="checkbox" className="drawer-toggle" />
                     <div className="drawer-content flex flex-col items-center ">
-                        <p className='text-6xl font-normal text-secondary uppercase'>dashBoard</p>
+                        <p className='text-6xl mt-3 font-normal text-secondary uppercase'>dashBoard</p>
                         <Outlet />
 
 
                     </div>
                     <div className="drawer-side">
                         <label htmlFor="dashBoard" className="drawer-overlay"></label>
-                        <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
-
+                        <ul className="menu p-4 overflow-y-auto w-[200px]  uppercase text-secondary bg-base-100 font-medium border-x-2 border-secondary">
+                            <li>
+                                <Link to='/dashboard'>Welcome</Link>
+                            </li>
                             <li>
                                 {
                                     !admin && <>
                                         <Link to='/dashboard/addreview'>add a review</Link>
-                                        
+
                                         <Link to='/dashboard/myorder'>my order</Link>
                                     </>
                                 }
 
                             </li>
                             <li>
-                                
+
                                 <Link to='/dashboard/myprofile'>my profile</Link>
                             </li>
-                            <li>
-                                <Link to='/dashboard'>Wellcome</Link>
-                            </li>
+
                             <li>
                                 {
                                     admin && <>
@@ -58,7 +58,7 @@ const DashBoard = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+            
         </>
     );
 };

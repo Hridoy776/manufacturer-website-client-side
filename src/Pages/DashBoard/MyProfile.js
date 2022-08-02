@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
@@ -30,7 +31,7 @@ const MyProfile = () => {
 
         }
         console.log(information)
-        fetch(`https://tranquil-brook-25862.herokuapp.com/user/information/${user.email}`, {
+        fetch(`http://localhost:5000/user/information/${user.email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -39,7 +40,11 @@ const MyProfile = () => {
             body: JSON.stringify(information)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if (data.success) {
+                    toast.success('successfully profile updated')
+                }
+            })
     }
     return (
         <div>

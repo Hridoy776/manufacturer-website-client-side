@@ -28,7 +28,7 @@ import Portfolio from './Pages/Portfolio/Portfolio';
 import Blog from './Pages/Blog/Blog';
 function App() {
   return (
-    <div className='max-w-7xl mx-auto'>
+    <div className='max-w-8xl mx-auto'>
       <Routes>
         <Route path="/" element={<Home></Home>} />
         <Route path="/home" element={<Home></Home>} />

@@ -2,19 +2,20 @@ import React from 'react';
 
 const Subscribe = () => {
     return (
-        <div className="   grid grid-cols-1 lg:grid-cols-2 gap-32 justify-center">
-            <div className='card-body w-[70%]  mx-auto  bg-purple-500 justify-items-center '>
-                <div className='w-full h-[400px] flex flex-col items-center justify-center'>
-                    <div className="form-control w-[80%] mx-auto">
+        <div className="   grid grid-cols-1 lg:grid-cols-2 gap-2 justify-center">
+            <div className=' '>
+                <div className='w-full  h-[400px] flex flex-col items-center justify-center'>
+                    <div className="form-control border-b border-secondary w-[80%] mx-auto">
 
-                        <input type="text" placeholder="email" className="input input-bordered text-xl" />
+                        <input type="text" placeholder="email" className="input text-xl" />
+                        
                     </div>
-                    <div className="form-control w-[80%] mx-auto mt-6">
+                    <div className="form-control border-b border-secondary w-[80%] mx-auto mt-6">
 
-                        <input type="text" placeholder="password" className="input input-bordered text-xl" />
+                        <input type="text" placeholder="password" className="input  text-xl" />
 
                     </div>
-                    <div className="form-control w-[80%] mx-auto  mt-6">
+                    <div className=" w-[80%] mx-auto  mt-6">
                         <button className="btn btn-primary  text-xl ">Subscribe now</button>
                     </div>
                 </div>

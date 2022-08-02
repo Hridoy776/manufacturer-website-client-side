@@ -4,13 +4,14 @@ import Banner from './Banner';
 import BussinessSummary from './BussinessSummary';
 import Footer from './Footer';
 import Navbar from './Navbar';
-import Reviews from './Reviews';
+
 import Service from './Service';
 import Tools from './Tools';
 import Subscribe from './Subscribe';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
+import ReviewSlider from '../Component/ReviewSlider';
 
 const Home = () => {
     const [user, loading] = useAuthState(auth)
@@ -36,7 +37,7 @@ const Home = () => {
             <section>
                 <p className='text-5xl text-primary font-medium my-16 text-center'>customer reviews</p>
                 <div className='mx-auto'>
-                    <Reviews />
+                    <ReviewSlider/>
                 </div>
             </section>
             <div className="divider my-20"></div>

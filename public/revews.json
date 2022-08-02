@@ -2,16 +2,31 @@
     {
         "name":"smith",
         "ratings":5,
-        "description":"trusted manufacturer company"
+        "description":"Excellent service from start to finish. All staff concerned were very helpful and endevoured to solve the issue with the product. I've used Einhell tools for a fair few years now and never had a problem with any of them."
     },
     {
         "name":"smith",
         "ratings":5,
-        "description":"trusted manufacturer company"
+        "description":"The free battery that I was meant to receive didn't arrive and after contacting Customer Services discovered there was a mix up with the post code. Found the response from CS excellent and the new battery arrived shortly afterwards."
     },
     {
         "name":"smith",
         "ratings":5,
-        "description":"trusted manufacturer company"
+        "description":"Excellent service from Ash at Einhell, needed a replacement part urgently and it was a slick and easy process to get this delivered. Great experience, thank you Ash , well recommended :)"
+    },
+    {
+        "name":"smith",
+        "ratings":5,
+        "description":"Excellent service from start to finish. All staff concerned were very helpful and endevoured to solve the issue with the product. I've used Einhell tools for a fair few years now and never had a problem with any of them."
+    },
+    {
+        "name":"smith",
+        "ratings":5,
+        "description":"The free battery that I was meant to receive didn't arrive and after contacting Customer Services discovered there was a mix up with the post code. Found the response from CS excellent and the new battery arrived shortly afterwards."
+    },
+    {
+        "name":"smith",
+        "ratings":5,
+        "description":"Excellent service from Ash at Einhell, needed a replacement part urgently and it was a slick and easy process to get this delivered. Great experience, thank you Ash , well recommended :)"
     }
 ]
