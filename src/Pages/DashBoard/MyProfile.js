@@ -31,7 +31,7 @@ const MyProfile = () => {
 
         }
         console.log(information)
-        fetch(`http://localhost:5000/user/information/${user.email}`, {
+        fetch(`https://tranquil-brook-25862.herokuapp.com/user/information/${user.email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
